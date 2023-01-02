@@ -1,0 +1,22 @@
+cards - array
+deck - hash
+deck.keys - array of keys which are 4 suits
+score(card) - method that may take a symbol, returns an integer
+
+====
+player_cards - empty array that will be updated during the iteration below
+deck.keys - array of hash's keys; each key is assigned to suit
+cards is assigned to deck[suit], which points to the associated value of suit
+Array#shuffle returns a new array with its elements shuffled
+Array#shuffle! returns self with is elements shuffled
+the mechanism in which you pick a 'random' card here is the shuffle the array destructively, then removing the last element of that array, which then is appended in the player_cards array
+
+here per suit, you pick a random card; you will end up with 4 elements in the player_cards array
+
+====
+the local variable sum is initialized to the return value of deck.reduce(0) with a block passed in as an argument.
+Array#reduce reduces all elements into a single return value. Here's 0 is set as the initial value of the return value. The block following the reduce method invocation has three parameters, sum, (key, value), the former corresponding to a variable that stores the return value for each iteration, the latter corresponding to the hash key and hash value for each iteration.
+
+here, for each k-v pair of deck containing 4 pairs, the value (remaining_cards in a hash) is transformed to its integer representation.
+
+line 36 - can you call the reduce method on a hash? yes...
